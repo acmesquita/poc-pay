@@ -12,9 +12,9 @@ gem 'sinatra-activerecord'
 gem 'sqlite3'
 
 group :test do
+  gem 'database_cleaner-active_record'
   gem 'rack-test'
   gem 'rspec'
-  gem 'database_cleaner-active_record'
 end
 
 group :development do

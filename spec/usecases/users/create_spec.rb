@@ -9,8 +9,8 @@ RSpec.describe 'CreateTest' do
     subject(:sub) { Users::Create }
 
     it 'returns a new user with id' do
-      result = sub.call({ name: 'Fulano', document: '1234567901',
-        email: 'xpto@email.com', password: '123456' })
+      result = sub.call({ name: 'Fulano', document: '1234567903',
+        email: 'xpto432@email.com', password: '123456' })
       expect(result.id).not_to be_nil
     end
   end
@@ -19,7 +19,35 @@ RSpec.describe 'CreateTest' do
     subject(:sub) { Users::Create }
 
     it 'throws InvalidaParams error' do
-      expect { sub.call({}) }.to raise_error(InvalidParams)
+      expect { sub.call({}) }.to raise_error InvalidParams
+    end
+  end
+
+  context 'when try insert two user with same document' do
+    subject(:sub) { Users::Create }
+
+    it 'throws InvalidaParams error' do
+      sub.call({
+        name: 'Fulano',
+        document: '1234567901',
+        email: 'xpto@email.com',
+        password: '123456'
+      })
+      expect { sub.call({ name: 'Fulano 2', document: '1234567901', email: 'xpto2@email.com', password: '12345678' }) }.to raise_error ActiveRecord::RecordInvalid
+    end
+  end
+
+  context 'when try insert two user with same email' do
+    subject(:sub) { Users::Create }
+
+    it 'throws InvalidaParams error' do
+      sub.call({
+        name: 'Fulano',
+        document: '1234567902',
+        email: 'xpto@email.com',
+        password: '123456'
+      })
+      expect { sub.call({ name: 'Fulano 2', document: '1234567901', email: 'xpto@email.com', password: '12345678' }) }.to raise_error ActiveRecord::RecordInvalid
     end
   end
 end

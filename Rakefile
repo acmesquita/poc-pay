@@ -8,6 +8,6 @@ namespace :db do
   end
 end
 
-task :s do
+task s: :environment do
   exec 'ruby app.rb -p 3000'
 end

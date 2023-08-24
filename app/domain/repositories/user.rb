@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
-class UserRepository < ActiveRecord::Base
+require_relative '../models/user'
+
+class UserRepository < User
   self.table_name = 'users'
 
-  validates :name, :document, :email, :password, presence: true
-  validates :document, :email, uniqueness: { case_sensitive: false }
+  def self.create(user)
+    user.save!
+    user
+  end
 end

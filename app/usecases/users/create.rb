@@ -24,7 +24,7 @@ module Users
 
       raise InvalidParams, 'Invalid params to create a new user' unless user.valid?
 
-      UserRepository.create!(user.to_hash)
+      UserRepository.create(user)
     end
   end
 end

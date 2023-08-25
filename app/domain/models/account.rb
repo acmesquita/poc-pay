@@ -7,4 +7,7 @@ class Account < ActiveRecord::Base
     commom: 'common',
     merchant: 'merchant'
   }
+
+  validates :balance, presence: true
+  validates :kind, presence: true, inclusion: { in: Account.kinds.keys }
 end

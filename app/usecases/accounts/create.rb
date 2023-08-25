@@ -2,9 +2,9 @@
 
 require_relative '../../domain/models/user'
 require_relative '../../domain/errors/invalid_params'
-require_relative '../../domain/repositories/user'
+require_relative '../../domain/repositories/account'
 
-module Users
+module Accounts
   class Create
     def initialize(params)
       @params = params
@@ -24,7 +24,7 @@ module Users
 
       raise InvalidParams, 'Invalid params to create a new user' unless user.valid?
 
-      UserRepository.create(user)
+      AccountRepository.create(user, @params.fetch(:kind, nil))
     end
   end
 end

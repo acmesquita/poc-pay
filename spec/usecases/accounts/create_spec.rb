@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative '../../../app/usecases/users/create'
+require_relative '../../../app/usecases/accounts/create'
 require_relative '../../../app/domain/errors/invalid_params'
 
 RSpec.describe 'CreateTest' do
   context 'when params provider correctly' do
-    subject(:sub) { Users::Create }
+    subject(:sub) { Accounts::Create }
 
-    it 'returns a new user with id' do
+    it 'returns a new account with id' do
       result = sub.call({
         name: 'Fulano',
         document: '1234567903',
@@ -18,10 +18,44 @@ RSpec.describe 'CreateTest' do
 
       expect(result.id).not_to be_nil
     end
+
+    it 'returns a new user with id' do
+      result = sub.call({
+        name: 'Fulano',
+        document: '1234567903',
+        email: 'xpto432@email.com',
+        password: '123456'
+      })
+
+      expect(result.user_id).not_to be_nil
+    end
+
+    it 'returns a account without kind provider' do
+      result = sub.call({
+        name: 'Fulano',
+        document: '1234567903',
+        email: 'xpto432@email.com',
+        password: '123456'
+      })
+
+      expect(result.kind).to eq('commom')
+    end
+
+    it 'returns a account with kind provider' do
+      result = sub.call({
+        name: 'Fulano',
+        document: '1234567903',
+        email: 'xpto432@email.com',
+        password: '123456',
+        kind: 'merchant'
+      })
+
+      expect(result.kind).to eq('merchant')
+    end
   end
 
   context 'when params provider incorrectly' do
-    subject(:sub) { Users::Create }
+    subject(:sub) { Accounts::Create }
 
     it 'throws InvalidaParams error' do
       expect { sub.call({}) }.to raise_error InvalidParams
@@ -29,7 +63,7 @@ RSpec.describe 'CreateTest' do
   end
 
   context 'when try insert two user with same document' do
-    subject(:sub) { Users::Create }
+    subject(:sub) { Accounts::Create }
 
     it 'throws InvalidaParams error' do
       sub.call({
@@ -50,7 +84,7 @@ RSpec.describe 'CreateTest' do
   end
 
   context 'when try insert two user with same email' do
-    subject(:sub) { Users::Create }
+    subject(:sub) { Accounts::Create }
 
     it 'throws InvalidaParams error' do
       sub.call({

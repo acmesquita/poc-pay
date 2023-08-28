@@ -10,6 +10,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
+gem 'zeitwerk'
 
 group :test do
   gem 'database_cleaner-active_record'

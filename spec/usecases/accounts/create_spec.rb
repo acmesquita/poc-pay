@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative '../../../app/usecases/accounts/create'
-require_relative '../../../app/domain/errors/invalid_params'
+# require_relative '../../../app/usecases/accounts/create'
+# require_relative '../../../app/domain/errors/invalid_params'
 
 RSpec.describe 'CreateTest' do
   context 'when params provider correctly' do

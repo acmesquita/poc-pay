@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
-# require_relative '../../domain/models/user'
-# require_relative '../../domain/errors/invalid_params'
-# require_relative '../../domain/repositories/account'
-
-class Accounts::Create
-  def initialize(params)
-    @params = params
-  end
-
-  def self.call(params)
-    new(params).call
-  end
-
+class Accounts::Create < BaseUsecase
   def call
     user = User.new({
       name: @params[:name],

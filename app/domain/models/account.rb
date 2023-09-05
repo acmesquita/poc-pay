@@ -9,5 +9,5 @@ class Account < ActiveRecord::Base
   }
 
   validates :balance, presence: true
-  validates :kind, presence: true, inclusion: { in: Account.kinds.keys }
+  validates :kind, presence: true
 end

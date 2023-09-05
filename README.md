@@ -1,6 +1,6 @@
 # Poc pay
 
-POC para praticar Ruby, Clean Arch, Sinatra
+POC para praticar Ruby, Clean Arch, Sinatra, Zeitwerk
 
 ## Objetivos
 Temos 2 tipos de usuários, os comuns e lojistas, ambos têm carteira com dinheiro e realizam transferências entre eles. Vamos nos atentar somente ao fluxo de transferência entre dois usuários.

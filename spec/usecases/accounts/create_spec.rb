@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-# require_relative '../../../app/usecases/accounts/create'
-# require_relative '../../../app/domain/errors/invalid_params'
 
 RSpec.describe 'CreateTest' do
   context 'when params provider correctly' do
@@ -51,6 +49,18 @@ RSpec.describe 'CreateTest' do
       })
 
       expect(result.kind).to eq('merchant')
+    end
+
+    it 'returns a account with public_id random' do
+      result = sub.call({
+        name: 'Fulano',
+        document: '1234567903',
+        email: 'xpto432@email.com',
+        password: '123456',
+        kind: 'merchant'
+      })
+
+      expect(result.public_id).not_to eq('0000')
     end
   end
 

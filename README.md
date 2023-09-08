@@ -35,3 +35,21 @@ POST /transaction
     "payee" : 15
 }
 ```
+
+### Getting starting
+
+Instalação das dependências
+
+```
+bundle install
+```
+
+Subir o servidor
+
+```
+rake s
+```
+
+Acessar http://localhost:3000
+
+Usos no arquivo `accounts.http`

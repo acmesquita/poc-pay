@@ -14,4 +14,5 @@ loader.push_dir("#{__dir__}/app/domain/models")
 loader.push_dir("#{__dir__}/app/domain/errors")
 loader.push_dir("#{__dir__}/app/domain/repositories")
 loader.push_dir("#{__dir__}/app/usecases")
+loader.push_dir("#{__dir__}/lib")
 loader.setup

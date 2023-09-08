@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class Account < ActiveRecord::Base
-  after_create :generete_public_id
+  before_create :generete_public_id
   belongs_to :user
+  has_many :credit_transactions, class_name: 'Transaction', foreign_key: 'sender_id'
+  has_many :debit_transactions, class_name: 'Transaction', foreign_key: 'receiver_id'
 
   enum kind: {
     commom: 'common',

@@ -1,5 +1,4 @@
 require:
-  - rubocop-rails
   - rubocop-rspec
 
 Layout/ArgumentAlignment:
@@ -18,7 +17,7 @@ Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Layout/LineLength:
-  Max: 90
+  Max: 120
   AllowedPatterns:
     - '^\s*describe\s.+\sdo$'
     - '^\s*it\s.+\sdo$'
@@ -36,6 +35,9 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+
+Style/RescueModifier:
   Enabled: false
 
 Style/AsciiComments:
@@ -70,12 +72,6 @@ Metrics/MethodLength:
   Exclude:
     - spec/**/*
 
-Rails/SkipsModelValidations:
-  Enabled: false
-
-Rails/LexicallyScopedActionFilter:
-  Enabled: false
-
 RSpec/NestedGroups:
   Max: 10
 
@@ -100,12 +96,6 @@ RSpec/NoExpectationExample:
 RSpec/ContextWording:
   Enabled: false
 
-Rails/TransactionExitStatement:
-  Enabled: false
-
 AllCops:
   NewCops: enable
   SuggestExtensions: false
-
-Rails/ApplicationRecord:
-  Enabled: false

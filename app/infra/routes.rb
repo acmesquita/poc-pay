@@ -27,4 +27,3 @@ end
 error 404 do
   { error: 'Invalid Params' }.to_json
 end
-

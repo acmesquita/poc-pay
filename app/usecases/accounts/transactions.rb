@@ -36,7 +36,11 @@ class Accounts::Transactions < BaseUsecase
   def sender_valid?
     raise InvalidTransaction, "Account nº #{@public_id_sender} not found" if @sender.nil?
     raise InvalidTransaction, "Merchant can't be transaction" if @sender.merchant?
-    raise InvalidTransaction, "Account nº #{@public_id_sender} can't be transaction for not found balance" if @sender.balance < @amount
+
+    return false unless @sender.balance < @amount
+
+    raise InvalidTransaction,
+      "Account nº #{@public_id_sender} can't be transaction for not found balance"
   end
 
   def send_notify

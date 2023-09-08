@@ -3,6 +3,10 @@
 accounts_controller = AccountsController.new
 transactions_controller = TransactionsController.new
 
+get '/' do
+  { msg: 'Hello to the Poc Pay' }.to_json
+end
+
 post '/accounts' do
   request.body.rewind  # in case someone already read it
   params = JSON.parse request.body.read
@@ -23,3 +27,4 @@ end
 error 404 do
   { error: 'Invalid Params' }.to_json
 end
+

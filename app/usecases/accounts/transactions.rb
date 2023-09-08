@@ -18,6 +18,8 @@ class Accounts::Transactions < BaseUsecase
     raise InvalidTransaction, 'Error transaction, try again' unless create_transaction(@sender, @receiver, @amount)
 
     send_notify
+
+    @transaction
   end
 
   private
@@ -28,7 +30,7 @@ class Accounts::Transactions < BaseUsecase
   end
 
   def create_transaction(sender, receiver, amount)
-    TransactionRepository.create(sender, receiver, amount)
+    @transaction = TransactionRepository.create(sender, receiver, amount)
   end
 
   def sender_valid?

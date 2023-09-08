@@ -1,0 +1,33 @@
+### common account
+POST http://localhost:4567/accounts HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Fulano",
+  "document": "12346789",
+  "email": "xpto123@email.com",
+  "password": "1234"
+}
+
+### merchant account
+POST http://localhost:4567/accounts HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Loja 3",
+  "document": "01001001000103",
+  "email": "loja12443@email.com",
+  "password": "1234",
+  "kind": "merchant"
+}
+
+### Transaction between account from 1310 (common) to 2521 (Loja 3)
+
+POST http://localhost:4567/transactions HTTP/1.1
+Content-Type: application/json
+
+{
+  "value": 100,
+  "sender": "1310",
+  "receiver": "2521"
+}

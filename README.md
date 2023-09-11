@@ -53,3 +53,11 @@ rake s
 Acessar http://localhost:3000
 
 Usos no arquivo `accounts.http`
+
+#### Requirements
+
+- [x] Create account
+- [x] Be transactions between accounts
+- [ ] Account statement
+- [ ] Deposit
+- [ ] Withdraw

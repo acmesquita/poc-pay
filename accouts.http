@@ -6,9 +6,9 @@ POST http://localhost:3000/accounts HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Fulano",
-  "document": "12346789",
-  "email": "xpto123@email.com",
+  "name": "Fulano 4",
+  "document": "12346742",
+  "email": "xpto143@email.com",
   "password": "1234"
 }
 
@@ -31,6 +31,6 @@ Content-Type: application/json
 
 {
   "value": 100,
-  "sender": "1310",
-  "receiver": "2521"
+  "sender": "0410",
+  "receiver": "1979"
 }

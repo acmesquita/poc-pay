@@ -12,7 +12,15 @@ task :s do
   exec 'ruby app.rb -p 3000'
 end
 
+task :server do
+  exec 'ruby app.rb -p 3000'
+end
+
 task :t do
+  exec 'rspec'
+end
+
+task :test do
   exec 'rspec'
 end
 

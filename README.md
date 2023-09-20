@@ -59,5 +59,5 @@ Usos no arquivo `accounts.http`
 - [x] Create account
 - [x] Be transactions between accounts
 - [ ] Account statement
-- [ ] Deposit
+- [x] Deposit
 - [ ] Withdraw

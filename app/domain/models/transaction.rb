@@ -16,9 +16,22 @@ class Transaction < ActiveRecord::Base
   end
 
   def update_balances
+    if sender.id == receiver.id
+      deposit!
+    else
+      transaction_between_accounts!
+    end
+  end
+
+  def transaction_between_accounts!
     sender.balance -= amount
     sender.save!
     receiver.balance += amount
     receiver.save!
+  end
+
+  def deposit!
+    sender.balance += amount
+    sender.save!
   end
 end

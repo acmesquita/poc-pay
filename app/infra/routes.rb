@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'routes/accounts_route'
+require_relative 'routes/deposit_route'
 require_relative 'routes/transactions_route'
 
 get '/' do

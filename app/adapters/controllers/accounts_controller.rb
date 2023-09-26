@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccountsController
-  def create(params)
+  def self.create(params)
     Accounts::Create.call({
       name: params['name'],
       document: params['document'],

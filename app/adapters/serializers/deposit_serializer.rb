@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-class DepositSerializer
-  def initialize(params)
-    @params = params
-  end
-
+class DepositSerializer < BaseSerializer
   def format
     {
       uid: @params.public_id,

@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-class AccountSerializer
-  def initialize(params)
-    @params = params
-  end
-
+class AccountSerializer < BaseSerializer
   def format
     {
       account_number: @params.public_id,

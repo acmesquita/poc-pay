@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-class TransactionSerializer
-  def initialize(params)
-    @params = params
-  end
-
+class TransactionSerializer < BaseSerializer
   def format
     {
       uid: @params.public_id,

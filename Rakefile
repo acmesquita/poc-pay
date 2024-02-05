@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require './app'
 require 'sinatra/activerecord/rake'
 
 namespace :db do
@@ -17,17 +18,21 @@ task :server do
 end
 
 task :t do
-  exec 'rspec'
+  exec 'bundle exec rspec'
 end
 
 task :test do
-  exec 'rspec'
+  exec 'bundle exec rspec'
 end
 
 task :lint do
-  exec 'rubocop'
+  exec 'bundle exec rubocop'
 end
 
 task :lint_fix do
-  exec 'rubocop -A'
+  exec 'bundle exec rubocop -A'
+end
+
+task :setup do
+  exec 'bundle exec rake db:create db:migrate'
 end

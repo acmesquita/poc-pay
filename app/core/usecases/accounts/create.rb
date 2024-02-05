@@ -9,7 +9,7 @@ class Accounts::Create < BaseUsecase
       password: @params[:password]
     })
 
-    raise InvalidParams, 'Invalid params to create a new user' unless user.valid?
+    raise InvalidParams, "Invalid params to create a new user" unless user.valid?
 
     AccountRepository.create(user, @params.fetch(:kind, nil))
   end

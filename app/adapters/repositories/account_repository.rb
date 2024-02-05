@@ -3,7 +3,7 @@
 class AccountRepository
   def self.create(user, kind)
     UserRepository.create(user)
-    kind = 'common' if kind.nil?
+    kind = "common" if kind.nil?
     Account.create!(user_id: user.id, kind: kind)
   end
 

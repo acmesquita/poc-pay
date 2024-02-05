@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-post '/transactions' do
+post "/transactions" do
   request.body.rewind
   params = JSON.parse request.body.read
   data = TransactionSerializer.format(TransactionsController.create(params))

@@ -34,5 +34,5 @@ task :lint_fix do
 end
 
 task :setup do
-  exec 'bundle exec rake db:create db:migrate'
+  exec 'bundle install && bundle exec rake db:create db:migrate'
 end

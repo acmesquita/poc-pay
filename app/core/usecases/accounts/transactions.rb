@@ -13,9 +13,9 @@ class Accounts::Transactions < BaseUsecase
     @receiver = AccountRepository.find_by_public_id(@public_id_receiver)
 
     raise InvalidTransaction, "Account nº #{@public_id_receiver} not found" if @receiver.nil?
-    raise InvalidTransaction, 'Transaction not authorized' unless authorized?
+    raise InvalidTransaction, "Transaction not authorized" unless authorized?
 
-    raise InvalidTransaction, 'Error transaction, try again' unless create_transaction(@sender, @receiver, @amount)
+    raise InvalidTransaction, "Error transaction, try again" unless create_transaction(@sender, @receiver, @amount)
 
     send_notify
 
@@ -25,8 +25,8 @@ class Accounts::Transactions < BaseUsecase
   private
 
   def authorized?
-    response = ApiClient::Request.get('https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6')
-    response[:body]['message'] == 'Autorizado'
+    response = ApiClient::Request.get("https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6")
+    response[:body]["message"] == "Autorizado"
   end
 
   def create_transaction(sender, receiver, amount)
@@ -44,6 +44,6 @@ class Accounts::Transactions < BaseUsecase
   end
 
   def send_notify
-    puts 'Send email'
+    puts "Send email"
   end
 end

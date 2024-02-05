@@ -41,7 +41,7 @@ POST /transaction
 Instalação das dependências
 
 ```
-bundle install
+rake setup
 ```
 
 Subir o servidor

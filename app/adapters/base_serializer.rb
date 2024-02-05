@@ -10,6 +10,6 @@ class BaseSerializer
   end
 
   def format
-    raise NoMethodError, 'method should be implemented in concrete class'
+    raise NoMethodError, "method should be implemented in concrete class"
   end
 end

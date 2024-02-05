@@ -4,8 +4,8 @@ class Transaction < ActiveRecord::Base
   before_create :generete_public_id
   before_create :update_balances
 
-  belongs_to :sender, class_name: 'Account'
-  belongs_to :receiver, class_name: 'Account'
+  belongs_to :sender, class_name: "Account"
+  belongs_to :receiver, class_name: "Account"
 
   validates :amount, numericality: { greater_than: 0 }
 

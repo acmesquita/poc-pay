@@ -89,6 +89,20 @@ GEM
       rubocop (~> 1.41)
     rubocop-factory_bot (2.23.1)
       rubocop (~> 1.33)
+    rubocop-minitest (0.33.0)
+      rubocop (>= 1.39, < 2.0)
+    rubocop-performance (1.19.1)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.22.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rails-omakase (1.0.0)
+      rubocop
+      rubocop-minitest
+      rubocop-performance
+      rubocop-rails
     rubocop-rspec (2.23.0)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
@@ -132,6 +146,7 @@ DEPENDENCIES
   rest-client
   rspec
   rubocop
+  rubocop-rails-omakase
   rubocop-rspec
   simplecov
   sinatra

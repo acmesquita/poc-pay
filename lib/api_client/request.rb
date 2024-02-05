@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rest-client'
+require "rest-client"
 
 class ApiClient::Request
   DEFAULT_HEARDER = { content_type: :json, accept: :json }.freeze

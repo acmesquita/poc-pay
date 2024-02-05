@@ -10,6 +10,6 @@ class BaseUsecase
   end
 
   def call
-    raise NoMethodError, 'method should be implemented in concrete class'
+    raise NoMethodError, "method should be implemented in concrete class"
   end
 end

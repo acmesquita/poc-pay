@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-post '/accounts' do
+post "/accounts" do
   request.body.rewind
   params = JSON.parse request.body.read
   data = AccountSerializer.format(AccountsController.create(params))
